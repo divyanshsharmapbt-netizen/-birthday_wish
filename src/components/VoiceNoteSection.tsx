@@ -293,7 +293,10 @@ export default function VoiceNoteSection({
           A Message in a Bottle
         </h2>
         <p className="text-xs text-slate-400 font-light max-w-sm mx-auto leading-relaxed">
-          Click play below to listen to a voice note left behind, a quiet greeting carrying years of unspoken thoughts.
+          happy birthday niche dekho ek voice note hai uske baad sabse neeche jakeprocess to cake pr click karna
+          <span className="block mt-2 text-[11px] text-rose-300/80 italic font-normal">
+            "maybe in another life there only you and me everything gonna perfect"
+          </span>
         </p>
       </div>
 
@@ -440,7 +443,7 @@ export default function VoiceNoteSection({
         <div className="flex items-center gap-2 pb-1 border-b border-slate-900">
           <FileAudio className="w-4 h-4 text-rose-400" />
           <h3 className="text-xs font-mono font-semibold text-slate-200 tracking-wider uppercase">
-            Private Media Cabinet / Setup Center
+            Private Media Cabinet / Setup Center (iska taste mujhe pucho)
           </h3>
         </div>
 

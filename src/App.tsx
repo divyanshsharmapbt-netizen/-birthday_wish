@@ -20,6 +20,7 @@ export default function App() {
   const [isUnlocked, setIsUnlocked] = useState(false);
   const [activeTab, setActiveTab] = useState<PageId>('voicenote');
   const [isMuted, setIsMuted] = useState(false);
+  const [isVoicePlaying, setIsVoicePlaying] = useState(false);
 
   // Dynamic Audio Assets URLs & state
   const [voiceNoteUrl, setVoiceNoteUrl] = useState<string>('/birthdaywish.mp4');
@@ -76,6 +77,7 @@ export default function App() {
 
   // Manage background song and soft fading when VoiceNote plays
   const handleVoicePlayState = (playing: boolean) => {
+    setIsVoicePlaying(playing);
     if (!bgAudioRef.current) return;
     
     if (playing) {
@@ -261,11 +263,23 @@ export default function App() {
               <>
                 <VolumeX className="w-3.5 h-3.5 text-slate-500" />
                 <span className="text-[10px] text-slate-500">AMBIENT OFF</span>
+                <span className="flex items-end gap-[1.5px] h-[10px] ml-0.5">
+                  <span className="w-[1.5px] bg-slate-600 rounded-full h-[3px]" />
+                  <span className="w-[1.5px] bg-slate-600 rounded-full h-[3px]" />
+                  <span className="w-[1.5px] bg-slate-600 rounded-full h-[3px]" />
+                  <span className="w-[1.5px] bg-slate-600 rounded-full h-[3px]" />
+                </span>
               </>
             ) : (
               <>
                 <Volume2 className="w-3.5 h-3.5 text-rose-400 animate-pulse" />
                 <span className="text-[10px] text-rose-300">AMBIENT ON</span>
+                <span className="flex items-end gap-[1.5px] h-[10px] ml-0.5">
+                  <span className={`w-[1.5px] bg-rose-400 rounded-full ${isVoicePlaying ? 'sound-bar-faded-1' : 'sound-bar-active-1'}`} />
+                  <span className={`w-[1.5px] bg-rose-400 rounded-full ${isVoicePlaying ? 'sound-bar-faded-2' : 'sound-bar-active-2'}`} />
+                  <span className={`w-[1.5px] bg-rose-400 rounded-full ${isVoicePlaying ? 'sound-bar-faded-3' : 'sound-bar-active-3'}`} />
+                  <span className={`w-[1.5px] bg-rose-400 rounded-full ${isVoicePlaying ? 'sound-bar-faded-4' : 'sound-bar-active-4'}`} />
+                </span>
               </>
             )}
           </button>
